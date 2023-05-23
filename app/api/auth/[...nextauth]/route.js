@@ -4,6 +4,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import User from '@models/user';
 import { connectToDB } from '@utils/database';
 
+
 const handler = NextAuth({
     providers: [
         GoogleProvider({
@@ -11,7 +12,6 @@ const handler = NextAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         })
     ],
-    secret: process.env.SECRET,
     callbacks: {
         async session({ session }) {
             // store the user id from MongoDB to session
